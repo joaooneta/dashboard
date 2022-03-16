@@ -1,0 +1,26 @@
+body, ul, li, p{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+    background-color: black;
+}
+
+.card-info{
+    display: block;
+    width: 300px;
+    height: 120px;
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.container-infos{
+    display: flex;
+    align-items: baseline;
+}
