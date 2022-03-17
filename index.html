@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <!-- Menu Lateral -->
@@ -23,6 +26,7 @@
         <!-- Select de competências -->
         <label for="competencia">Competência:</label>
         <select name="competencia" id="competencia">
+            <option value="">Selecione uma competência</option>
             <option value="2018-08">Agosto/2018</option>
             <option value="2018-09">Setembro/2018</option>
             <option value="2018-10">Outubro/2018</option>
@@ -32,42 +36,42 @@
         <div class="container-infos">
             <div class="card-info">
                 <h5>Número de vendas</h5>
-                <p>?</p>
+                <p id="numeroVendas">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Total de vendas</h5>
-                <p>?</p>
+                <p id="totalVendas">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Clientes ativos</h5>
-                <p>?</p>
+                <p id="clientesAtivos">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Clientes inativos</h5>
-                <p>?</p>
+                <p id="clientesInativos">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Total de reclamações</h5>
-                <p>?</p>
+                <p id="totalReclamacoes">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Total de elogios</h5>
-                <p>?</p>
+                <p id="totalElogios">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Total de sugestões</h5>
-                <p>?</p>
+                <p id="totalSugestoes">?</p>
             </div>
     
             <div class="card-info">
                 <h5>Total de despesas</h5>
-                <p>?</p>
+                <p id="totalDespesas">?</p>
             </div>
         </div>
         
