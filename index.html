@@ -13,8 +13,8 @@
 <body>
     <!-- Menu Lateral -->
     <aside>
-        <a href="">Logo aqui!</a>
         <ul>
+            <li id="logo"><a href="#">Logo aqui!</a></li>
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Ajuda</a></li>
         </ul>
@@ -24,54 +24,88 @@
     <section id="conteudos">
 
         <!-- Select de competências -->
-        <label for="competencia">Competência:</label>
-        <select name="competencia" id="competencia">
-            <option value="">Selecione uma competência</option>
-            <option value="2018-08">Agosto/2018</option>
-            <option value="2018-09">Setembro/2018</option>
-            <option value="2018-10">Outubro/2018</option>
-        </select><hr>
-
+        <div class="container-competencia">
+            <label for="competencia">Competência:</label>
+            <select name="competencia" id="competencia">
+                <option value="">Selecione uma competência</option>
+                <option value="2018-08">Agosto/2018</option>
+                <option value="2018-09">Setembro/2018</option>
+                <option value="2018-10">Outubro/2018</option>
+            </select>
+        </div>
+        <hr>
         <!-- Divs de informações -->
         <div class="container-infos">
-            <div class="card-info">
-                <h5>Número de vendas</h5>
-                <p id="numeroVendas">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Número de vendas</h5>
+                </div>
+                <div class="card-body">
+                    <p id="numeroVendas">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Total de vendas</h5>
-                <p id="totalVendas">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total de vendas</h5>
+                </div>
+                <div class="card-body">
+                    <p id="totalVendas">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Clientes ativos</h5>
-                <p id="clientesAtivos">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Clientes ativos</h5>
+                </div>
+                <div class="card-body">
+                    <p id="clientesAtivos">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Clientes inativos</h5>
-                <p id="clientesInativos">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Clientes inativos</h5>
+                </div>
+                <div class="card-body">
+                    <p id="clientesInativos">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Total de reclamações</h5>
-                <p id="totalReclamacoes">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total de reclamações</h5>
+                </div>
+                <div class="card-body">
+                    <p id="totalReclamacoes">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Total de elogios</h5>
-                <p id="totalElogios">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total de elogios</h5>
+                </div>
+                <div class="card-body">
+                    <p id="totalElogios">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Total de sugestões</h5>
-                <p id="totalSugestoes">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total de sugestões</h5>
+                </div>
+                <div class="card-body">
+                    <p id="totalSugestoes">?</p>
+                </div>
             </div>
     
-            <div class="card-info">
-                <h5>Total de despesas</h5>
-                <p id="totalDespesas">?</p>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total de despesas</h5>
+                </div>
+                <div class="card-body">
+                    <p id="totalDespesas">?</p>
+                </div>
             </div>
         </div>
         
