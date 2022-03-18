@@ -1,5 +1,6 @@
 <?php
 
+    //Classe responsável por armazenar os dados do Dashboard
     class Dashboard{
         public $data_inicio;
         public $data_fim;
@@ -22,6 +23,7 @@
         }
     }
 
+    //Classe responsável por realizar as conexões com o banco
     class Conexao{
         private $host = 'localhost';
         private $dbname = 'dashboard';
@@ -44,6 +46,7 @@
         }
     }
 
+    //Controller da aplicação, comandando as operações chaves necessárias para resgate de dados.
     class Bd{
         private $conexao;
         private $dashboard;
@@ -69,7 +72,11 @@
         }
 
         public function getTotalVendas(){
-            $query = 'SELECT SUM(total) as total_vendas FROM tb_vendas WHERE data_venda BETWEEN :data_inicio AND :data_fim;';
+
+            $query = 'SELECT SUM(total) as total_vendas 
+                      FROM tb_vendas 
+                      WHERE data_venda 
+                      BETWEEN :data_inicio AND :data_fim;';
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue('data_inicio', $this->dashboard->__get('data_inicio'));
             $stmt->bindValue('data_fim', $this->dashboard->__get('data_fim'));
@@ -79,7 +86,9 @@
         }
 
         public function getClientesAtivos(){
-            $query = 'SELECT COUNT(*) as clientes_ativos FROM tb_clientes WHERE cliente_ativo = 1;';
+            $query = 'SELECT COUNT(*) as clientes_ativos 
+                      FROM tb_clientes 
+                      WHERE cliente_ativo = 1;';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
 
@@ -88,7 +97,9 @@
         }
 
         public function getClientesInativos(){
-            $query = 'SELECT COUNT(*) as clientes_inativos FROM tb_clientes WHERE cliente_ativo = 0;';
+            $query = 'SELECT COUNT(*) as clientes_inativos 
+                      FROM tb_clientes 
+                      WHERE cliente_ativo = 0;';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
 
@@ -96,7 +107,9 @@
         }
 
         public function getTotalReclamacoes(){
-            $query = 'SELECT COUNT(*) as total_reclamacoes FROM tb_contatos WHERE tipo_contato = 1;';
+            $query = 'SELECT COUNT(*) as total_reclamacoes 
+                      FROM tb_contatos 
+                      WHERE tipo_contato = 1;';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
 
@@ -104,7 +117,9 @@
         }
 
         public function getTotalElogios(){
-            $query = 'SELECT COUNT(*) as total_elogios FROM tb_contatos WHERE tipo_contato = 3;';
+            $query = 'SELECT COUNT(*) as total_elogios 
+                      FROM tb_contatos 
+                      WHERE tipo_contato = 3;';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
 
@@ -112,7 +127,9 @@
         }
 
         public function getTotalSugestoes(){
-            $query = 'SELECT COUNT(*) as total_sugestoes FROM tb_contatos WHERE tipo_contato = 2;';
+            $query = 'SELECT COUNT(*) as total_sugestoes 
+                      FROM tb_contatos 
+                      WHERE tipo_contato = 2;';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
 
@@ -120,7 +137,9 @@
         }
 
         public function getTotalDespesas(){
-            $query = 'SELECT SUM(total) as total_despesas FROM tb_despesas WHERE data_despesa BETWEEN :data_inicio AND :data_fim;';
+            $query = 'SELECT SUM(total) as total_despesas 
+                      FROM tb_despesas WHERE data_despesa 
+                      BETWEEN :data_inicio AND :data_fim;';
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue('data_inicio', $this->dashboard->__get('data_inicio'));
             $stmt->bindValue('data_fim', $this->dashboard->__get('data_fim'));
@@ -130,15 +149,23 @@
         }
     }
 
+
     $dashboard = new Dashboard();
+
+    //Recebe e separa dados da competência selecionados pelo select na página index.html
     $competencia = explode('-', $_GET['competencia']);
     $ano = $competencia[0];
     $mes = $competencia[1];
+
+    //Operação necessária para descobrir quantos dias tem no mês selecionado
     $dias_mes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
     $dashboard->__set('data_inicio', $ano . '-' . $mes . '-01');
     $dashboard->__set('data_fim',  $ano . '-' . $mes . '-' . $dias_mes);
+
     $conexao = new Conexao();
     $bd = new Bd($conexao, $dashboard);
+
+    //Definindo valores do objeto dashboard, que serão disponibilizados ao script.js em formato JSON
     $dashboard->__set('numero_vendas', $bd->getNumeroVendas());
     $dashboard->__set('total_vendas', $bd->getTotalVendas());
     $dashboard->__set('clientes_ativos', $bd->getClientesAtivos());

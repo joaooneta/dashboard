@@ -1,3 +1,4 @@
+/* Layout */
 *{
     margin: 0px;
     padding: 0px;
@@ -10,27 +11,38 @@ body,html{
 }
 
 body{
-    display: flex;
-    flex-direction: row;
     background-color: #ebedef;
 }
 
+/* Menu Lateral */
 aside{
     background-color: #2e353d;
-    width: 400px;
+    width: 250px;
+    position: fixed;
+    height: 100%;
 }
 
 li, a{
-    padding: 20px 20px 20px 0px;
+    padding: 20px 20px 20px 10px;
+}
+
+li{
+    border-bottom: 1px solid #23282e;
 }
 
 li:hover{
-    background-color: black;
+    background-color: #5a5c5f;
+    border-left: 1px solid rgb(224, 222, 222);
+    transition: 0.5s;
 }
 
 #logo{
     background-color: #23282e;
     text-align: center;
+}
+
+#logo:hover{
+    border-left: none;
 }
 
 a{
@@ -40,14 +52,30 @@ a{
     text-align: center;
 }
 
+p{
+    padding: 10px;
+}
+
+/* Seção conteúdos */
+#conteudos{
+    margin-left: 350px;
+}
+
 .container-infos{
     display: flex;
     flex-wrap: wrap;
 }
 
+.container-competencia{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .card{
     display: block;
-    width: 300px;
+    width: 400px;
     height: 120px;
     margin: 20px;
     border: 1px solid rgba(0,0,0,.125);
@@ -63,18 +91,7 @@ a{
 }
 
 .card-body{
-    background-color: white;
-    padding: 20px;
-}
-
-#conteudos{
-    padding-left: 100px;
-    padding-right: 10px;
-}
-
-.container-competencia{
     display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    justify-content: center;
+    justify-items: center;
 }
